@@ -2,7 +2,7 @@ module.exports = {
   Google : {
     GOOGLE_CLIENT_ID:"Your google client id",
     GOOGLE_CLIENT_SECRET:"your google client secret",
-		CALLBACK_URL: "http://localhost:5000/api/auth/google/callback"
+    CALLBACK_URL: "http://localhost:5000/api/auth/google/callback"
   },
   Facebook:{
     APP_ID:"Your facebook app id",
