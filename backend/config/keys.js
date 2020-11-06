@@ -11,6 +11,4 @@ module.exports = {
   },
   mongoURI: "Your mongo uri",
   secretOrKey: "your secret",
-  FACEBOOK_APP_ID:"",
-  FACEBOOK_APP_SECRET:"",
 };
