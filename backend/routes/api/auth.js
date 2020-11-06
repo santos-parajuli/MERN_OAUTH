@@ -16,7 +16,7 @@ module.exports = (passport)=>{
     router.get('/google', passport.authenticate('google', {scope: ['email']}));
 
     router.get('/google/callback',passport.authenticate('google', {failureRedirect: '/auth/login'}),(req, res) => {
-        const payload = { id: req.user.id,avatarURL: req.user.profile.avatarURL,name: req.user.profile.name,email:req.user.emailAddress,contacts:req.user.contacts};
+        const payload = { id: req.user.id,avatarURL: req.user.profile.avatarURL,name: req.user.profile.name,emailAddress:req.user.emailAddress,contacts:req.user.contacts};
         jwt.sign(payload,keys.secretOrKey,{expiresIn: 31556926},
         (err, token) => {
             res.redirect("http://localhost:3000/token/"+token)
@@ -26,7 +26,7 @@ module.exports = (passport)=>{
     router.get('/facebook', passport.authenticate('facebook', {scope: ['email']}));
 
     router.get('/facebook/callback',passport.authenticate('facebook', {failureRedirect: '/auth/login'}),(req, res) => {
-        const payload = { id: req.user.id,avatarURL: req.user.profile.avatarURL,name: req.user.profile.name,email:req.user.emailAddress,contacts:req.user.contacts};
+        const payload = { id: req.user.id,avatarURL: req.user.profile.avatarURL,name: req.user.profile.name,emailAddress:req.user.emailAddress,contacts:req.user.contacts};
         jwt.sign(payload,keys.secretOrKey,{expiresIn: 31556926},
         (err, token) => {
             res.redirect("http://localhost:3000/token/"+token)
