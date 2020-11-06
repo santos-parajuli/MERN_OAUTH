@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-const keys = require('./config/keys');
 var cors = require('cors');
 const SerialAuthenticator = require("./auth/index");
 const app = express();
@@ -18,13 +17,6 @@ app.use(
 );
 app.use(bodyParser.json());
 
-app.use(
-  require("express-session")({
-    secret: keys.SESSION_SECRET,
-    resave: true,
-    saveUninitialized: true
-  })
-);
 
 // DB Config
 const db = require("./config/keys").mongoURI;
