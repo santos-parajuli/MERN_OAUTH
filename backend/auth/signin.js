@@ -15,9 +15,11 @@ module.exports = class {
       bcrypt.compare(req.body.password, user.password, (err, result)=>{
          if (err) { return done(err); }
          if(result === true){
-            let {emailAddress, profile, gender, dateOfBirth, status, _id, avatarURL, contact} = user;
+            let {emailAddress, profile, accountCreated, _id, contact} = user;
+            let name = profile.name;
+            let avatarURL=profile.avatarURL
             let token = jwt.sign(
-                        {emailAddress, profile, gender, dateOfBirth, status, _id, avatarURL, contact},
+                        {emailAddress, name ,accountCreated , _id, avatarURL, contact},
                         secretOrKey, 
                         { expiresIn: 365 * 24 * 60 * 60 }); 
             this.User.findOneAndUpdate({_id: _id},
